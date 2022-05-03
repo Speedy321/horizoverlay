@@ -140,9 +140,15 @@ function DamageBar({ width, show, crit, dhit, cdhit }) {
   )
 }
 
+function OverhealColor(over_heal) {
+  let r_color = over_heal * 255
+  if (r_color > 255) {r_color = 255}
+  return `rgb(${r_color}, 0, 0)`
+}
+
 function DataWrapper(props) {
   return (
-    <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
+    <div className={props.relevant ? props.label.toLowerCase() : props.label.toLowerCase()+' irrelevant'} style={{color: OverhealColor(props.overheal)}}>
       <div>
         <span className="damage-stats">{props.text}</span>
         <span className="label">{props.label}</span>
@@ -153,29 +159,33 @@ function DataWrapper(props) {
 
 function DataText({ type, show = true, ...data } = {}) {
   if (!show) return null
-  let text, label, relevant
+  let text, label, relevant, overheal
   switch (type) {
     case 'hps':
       text = data.ENCHPS
       label = ' HPS'
       relevant = data.ENCHPS > data.ENCDPS
+      overheal = data.overHeal / data.healed
       break
     case 'pct':
       text = data.Percentile
       label = ' pct'
       relevant = data.Percentile > data.ENCHPS
+      overheal = 0
       break
     case 'dps':
       text = data.ENCDPS
       label = ' DPS'
       relevant = data.ENCDPS > data.ENCHPS
+      overheal = 0
       break
     case 'job':
       text = data.Job.toUpperCase()
       label = ''
       relevant = '1'
+      overheal = 0
       break
     default:
   }
-  return <DataWrapper text={text} label={label} relevant={relevant} />
+  return <DataWrapper text={text} label={label} relevant={relevant} overheal={overheal}/>
 }
