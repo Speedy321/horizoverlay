@@ -140,15 +140,20 @@ function DamageBar({ width, show, crit, dhit, cdhit }) {
   )
 }
 
-function OverhealColor(over_heal) {
+function OverhealColor(over_heal, isBlack) {
   let r_color = over_heal * 255
   if (r_color > 255) {r_color = 255}
-  return `rgb(${r_color}, 0, 0)`
+  if (isBlack) {
+    return `rgb(${r_color}, 0, 0)`
+  } else {
+    r_color = 255 - r_color
+    return `rgb(255, ${r_color}, ${r_color})`
+  }
 }
 
 function DataWrapper(props) {
   return (
-    <div className={props.relevant ? props.label.toLowerCase() : props.label.toLowerCase()+' irrelevant'} style={{color: OverhealColor(props.overheal)}}>
+    <div className={props.relevant ? props.label.toLowerCase() : props.label.toLowerCase()+' irrelevant'} style={{color: OverhealColor(props.overheal, false)}}>
       <div>
         <span className="damage-stats">{props.text}</span>
         <span className="label">{props.label}</span>

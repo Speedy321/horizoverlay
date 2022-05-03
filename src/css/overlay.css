@@ -212,7 +212,7 @@
   text-align: left;
 }
 .row.self .dps {
-  color: #000;
+  color: rgb(255, 255, 255);
   text-shadow: none;
 }
 .row .hps {
@@ -225,7 +225,7 @@
   text-align: left;
 }
 .row.self .hps {
-  color: #000;
+  color: rgb(255, 255, 255);
   text-shadow: none;
 }
 .row .data-items:before {
