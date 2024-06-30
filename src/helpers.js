@@ -147,35 +147,37 @@ export function getRandom(min, max) {
 }
 
 export const jobRoles = {
-    tank: ['drk', 'gla', 'mrd', 'pld', 'war', 'titan', 'gnb'],
-    healer: ['ast', 'cnj', 'sch', 'whm', 'sge', 'eos', 'selene'],
-    dps: [
-        'acn',
-        'arc',
-        'blm',
-        'brd',
-        'drg',
-        'lnc',
-        'mch',
-        'mnk',
-        'nin',
-        'pgl',
-        'pug',
-        'rdm',
-        'rog',
-        'rpr',
-        'sam',
-        'smn',
-        'thm',
-        'dnc',
-        'carbuncle',
-        'garuda',
-        'ifrit',
-        'rook',
-        'bishop',
-        'chocobo',
-        'lb'
-    ]
+  tank: ['drk', 'gla', 'mrd', 'pld', 'war', 'titan', 'gnb'],
+  healer: ['ast', 'cnj', 'sch', 'whm', 'sge', 'eos', 'selene'],
+  dps: [
+    'acn',
+    'arc',
+    'blm',
+    'brd',
+    'dnc',
+    'drg',
+    'lnc',
+    'mch',
+    'mnk',
+    'nin',
+    'pct',
+    'pgl',
+    'pug',
+    'rdm',
+    'rog',
+    'rpr',
+    'sam',
+    'smn',
+    'thm',
+    'vpr',
+    'carbuncle',
+    'garuda',
+    'ifrit',
+    'rook',
+    'bishop',
+    'chocobo',
+    'lb'
+  ]
 }
 
 export const otherIcons = [
